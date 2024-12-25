@@ -1,0 +1,76 @@
+{
+  "name": "finance-expenses-registration",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "business-tools-monorepo",
+  "sourceRoot": "apps/finance/expenses-registration/src",
+  "tags": ["domain:finance", "type:app"],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/finance/expenses-registration",
+        "index": "apps/finance/expenses-registration/src/index.html",
+        "browser": "apps/finance/expenses-registration/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/finance/expenses-registration/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/finance/expenses-registration/src/favicon.ico",
+          "apps/finance/expenses-registration/src/assets"
+        ],
+        "styles": ["apps/finance/expenses-registration/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "finance-expenses-registration:build:production"
+        },
+        "development": {
+          "buildTarget": "finance-expenses-registration:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "finance-expenses-registration:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "finance-expenses-registration:build",
+        "staticFilePath": "dist/apps/finance/expenses-registration/browser"
+      }
+    }
+  }
+}
