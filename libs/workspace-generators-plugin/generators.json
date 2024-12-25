@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "generate-angular-library": {
+      "factory": "./src/generators/generate-angular-library/generate-angular-library",
+      "schema": "./src/generators/generate-angular-library/schema.json",
+      "description": "generate-angular-library generator"
+    },
+    "generate-angular-application": {
+      "factory": "./src/generators/generate-angular-application/generate-angular-application",
+      "schema": "./src/generators/generate-angular-application/schema.json",
+      "description": "generate-angular-application generator"
+    }
+  }
+}
