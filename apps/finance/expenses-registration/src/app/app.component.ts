@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '@bt-libs/shared/ui/common-component';
-
+import { NavbarItem } from '@bt-libs/shared/ui/models';
 
 @Component({
   standalone: true,
@@ -12,4 +12,9 @@ import { NavbarComponent } from '@bt-libs/shared/ui/common-component';
 })
 export class AppComponent {
   title = 'finance-expenses-registration';
+
+  navItems: NavbarItem[] = [
+    { label: 'home', route: '/' },
+    { label: 'expensesapproval', route: '/expenses-approval' },
+  ];
 }
