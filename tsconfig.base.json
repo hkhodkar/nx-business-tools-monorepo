@@ -26,6 +26,9 @@
       ],
       "@bt-libs/shared/ui/models": ["libs/shared/ui/models/src/index.ts"],
       "@bt-libs/shared/ui/utils": ["libs/shared/ui/utils/src/index.ts"],
+      "@bt-libs/shared/util/common-pipes": [
+        "libs/shared/util/common-pipes/src/index.ts"
+      ],
       "@business-tools/workspace-generators-plugin": [
         "libs/workspace-generators-plugin/src/index.ts"
       ]
