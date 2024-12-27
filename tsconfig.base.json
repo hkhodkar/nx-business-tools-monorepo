@@ -21,6 +21,9 @@
       "@bt-libs/shared/ui/common-component": [
         "libs/shared/ui/common-component/src/index.ts"
       ],
+      "@bt-libs/shared/ui/common-directives": [
+        "libs/shared/ui/common-directives/src/index.ts"
+      ],
       "@bt-libs/shared/ui/models": ["libs/shared/ui/models/src/index.ts"],
       "@bt-libs/shared/ui/utils": ["libs/shared/ui/utils/src/index.ts"],
       "@business-tools/workspace-generators-plugin": [

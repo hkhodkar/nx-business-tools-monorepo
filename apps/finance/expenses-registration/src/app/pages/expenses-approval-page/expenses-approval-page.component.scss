@@ -1,0 +1,18 @@
+:host {
+  .container {
+    display: flex;
+    gap: 1rem;
+  }
+  margin: 1rem;
+  display: block;
+  div {
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  span {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+  }
+}
