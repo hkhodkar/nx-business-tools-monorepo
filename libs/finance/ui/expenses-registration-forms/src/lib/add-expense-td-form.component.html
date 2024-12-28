@@ -2,8 +2,7 @@
   <form #addExpenseForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
       <label for="description">Description:</label>
-      <!-- <input [btLibsUtilMaxWordCount]="2" required [(ngModel)]="expenseToAdd.description" -->
-      <input required [(ngModel)]="expenseToAdd.description"
+      <input [btLibsUtilMaxWordCount]="2" required [(ngModel)]="expenseToAdd.description"
         [ngModelOptions]="{name: 'description', standalone: false}" #description="ngModel" type="text" id="description">
       <span *ngIf="addExpenseForm.touched && description.hasError('required')">This field is required</span>
       <span *ngIf="addExpenseForm.touched && description.hasError('btLibsUtilMaxWordCount')">You can only use 2 words,

@@ -9,10 +9,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AddExpense } from './add-expense.interface';
+import { MaxWordCountDirective } from '@bt-libs/shared/util/form-validators';
 
 @Component({
   selector: 'bt-libs-ui-add-expense-template-driven-form',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MaxWordCountDirective],
   templateUrl: './add-expense-td-form.component.html',
   styleUrl: './add-expense-td-form.component.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
