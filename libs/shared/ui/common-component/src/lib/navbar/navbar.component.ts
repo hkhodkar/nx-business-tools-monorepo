@@ -11,12 +11,11 @@ import { RouterLink } from '@angular/router';
 import { addHome } from '@bt-libs/shared/ui/utils';
 
 @Component({
-  selector: 'bt-libs-ui-navbar',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'bt-libs-ui-navbar',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
   navbarItems = input([], { transform: addHome });

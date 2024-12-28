@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'business-tools-monorepo-expenses-overview-page',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './expenses-overview-page.component.html',
-  styleUrl: './expenses-overview-page.component.sass',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'business-tools-monorepo-expenses-overview-page',
+    imports: [CommonModule, RouterModule],
+    templateUrl: './expenses-overview-page.component.html',
+    styleUrl: './expenses-overview-page.component.sass',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpensesOverviewPageComponent {}

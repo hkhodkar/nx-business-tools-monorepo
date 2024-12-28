@@ -4,11 +4,10 @@ import { HighlightDirective } from '@bt-libs/shared/ui/common-directives';
 import { SelectableLabelComponent } from '@bt-libs/shared/ui/common-component';
 
 @Component({
-  selector: 'business-tools-monorepo-expenses-approval-page',
-  standalone: true,
-  imports: [CommonModule, HighlightDirective, SelectableLabelComponent],
-  templateUrl: './expenses-approval-page.component.html',
-  styleUrl: './expenses-approval-page.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'business-tools-monorepo-expenses-approval-page',
+    imports: [CommonModule, HighlightDirective, SelectableLabelComponent],
+    templateUrl: './expenses-approval-page.component.html',
+    styleUrl: './expenses-approval-page.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpensesApprovalPageComponent {}

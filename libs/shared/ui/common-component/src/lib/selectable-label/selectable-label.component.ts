@@ -9,13 +9,12 @@ import { CommonModule } from '@angular/common';
 import { selectedAnimation } from '@bt-libs/shared/ui/utils';
 
 @Component({
-  selector: 'bt-libs-ui-selectable-label',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './selectable-label.component.html',
-  styleUrl: './selectable-label.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [selectedAnimation() ]
+    selector: 'bt-libs-ui-selectable-label',
+    imports: [CommonModule],
+    templateUrl: './selectable-label.component.html',
+    styleUrl: './selectable-label.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [selectedAnimation()]
 })
 export class SelectableLabelComponent {
   animationState = 'deselected';
