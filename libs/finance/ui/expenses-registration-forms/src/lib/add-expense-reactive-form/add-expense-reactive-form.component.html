@@ -5,6 +5,8 @@
       <input formControlName="description" type="text">
       <span *ngIf="addExpenseForm.touched && addExpenseForm.controls.description.hasError('required')">This field is
         required</span>
+      <span *ngIf="addExpenseForm.touched && addExpenseForm.controls.description.hasError('maxWordCountValidator')">the
+        maximum word count could be {{ addExpenseForm.controls.description.getError('maxWordCountValidator')?.count }}</span>
     </div>
     <fieldset formGroupName="amount">
       <div class="form-field">

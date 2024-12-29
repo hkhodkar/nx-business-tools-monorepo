@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { CommonModule } from '@angular/common';
 import { AddExpenseReactive } from '../add-expense.interface';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { maxWordCountValidator } from '@bt-libs/shared/util/form-validators';
 
 @Component({
   selector: 'bt-libs-ui-add-expense-reactive-form',
@@ -24,8 +25,7 @@ export class AddExpenseReactiveFormComponent {
   @Output() addExpense = new EventEmitter<AddExpenseReactive>();
 
   addExpenseForm = new FormGroup({
-    // description: new FormControl('', [Validators.required, maxWordCountValidator(3)]),
-    description: new FormControl('', [Validators.required]),
+    description: new FormControl('',Validators.compose([Validators.required, maxWordCountValidator(4)])),
     amount: new FormGroup({
       amountExclVat: new FormControl<number | null>(null, [Validators.required]),
       vatPercentage: new FormControl<number | null>(null, [Validators.required, Validators.min(0), Validators.max(100)]),
