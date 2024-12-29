@@ -6,7 +6,10 @@ import {
   AddExpense,
   AddExpenseReactiveFormComponent,
   AddExpenseTemplateDrivenFormComponent,
+  DynamicControl,
+  DynamicFormComponent,
 } from '@bt-libs/finance/ui/expenses-registration-forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'business-tools-monorepo-expenses-approval-page',
@@ -15,7 +18,8 @@ import {
     HighlightDirective,
     SelectableLabelComponent,
     AddExpenseTemplateDrivenFormComponent,
-    AddExpenseReactiveFormComponent
+    AddExpenseReactiveFormComponent,
+    DynamicFormComponent,
   ],
   templateUrl: './expenses-approval-page.component.html',
   styleUrl: './expenses-approval-page.component.scss',
@@ -25,4 +29,34 @@ export class ExpensesApprovalPageComponent {
   onAddExpense(addExpense: AddExpense) {
     console.log(addExpense);
   }
+
+  formModelConfig: DynamicControl[] = [
+    {
+      controlKey: 'description',
+      formFieldType: 'input',
+      inputType: 'text',
+      label: 'Description',
+      defaultValue: '',
+      updateOn: 'change',
+      validators: [Validators.required],
+    },
+    {
+      controlKey: 'amount',
+      formFieldType: 'input',
+      inputType: 'number',
+      label: 'Amount excl. VAT',
+      defaultValue: null,
+      updateOn: 'change',
+      validators: [Validators.required, Validators.min(0)],
+    },
+    {
+      controlKey: 'Vat percentage',
+      formFieldType: 'input',
+      inputType: 'number',
+      label: 'Amount of VAT percentage',
+      defaultValue: null,
+      updateOn: 'change',
+      validators: [Validators.required, Validators.min(0), Validators.max(100)],
+    },
+  ];
 }
