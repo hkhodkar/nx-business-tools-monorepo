@@ -1,1 +1,6 @@
-<a [routerLink]="['path', { outlets: { sidebar: 'path'} }]">Click to navigate</a>
+<!-- <bt-libs-modal [(shown)]="addExpenseShown" [title]="'Add expense'">
+  <bt-libs-ui-add-expense-form (addExpense)="addExpense($event)" />
+</bt-libs-modal> -->
+<bt-libs-ui-modal  [(shown)]="addExpenseShown" [title]="'Add expense'">
+  <bt-libs-ui-add-expense-template-driven-form (addExpense)="addExpense($event)" />
+</bt-libs-ui-modal>

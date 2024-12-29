@@ -13,6 +13,7 @@ export class AppComponent {
   title = 'finance-expenses-registration';
 
   navItems: NavbarItem[] = [
-    { label: 'expensesapproval', route: '/expenses-approval' },
+    { label: 'expenses-overview', route: '/expenses-overview' },
+    { label: 'expenses-approval', route: '/expenses-approval' },
   ];
 }
