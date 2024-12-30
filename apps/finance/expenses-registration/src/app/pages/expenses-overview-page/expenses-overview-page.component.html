@@ -1,6 +1,7 @@
-<!-- <bt-libs-modal [(shown)]="addExpenseShown" [title]="'Add expense'">
-  <bt-libs-ui-add-expense-form (addExpense)="addExpense($event)" />
-</bt-libs-modal> -->
-<bt-libs-ui-modal  [(shown)]="addExpenseShown" [title]="'Add expense'">
+<button *ngIf="!addExpenseShown" (click)="addExpenseShown=true">show modal</button>
+<bt-libs-ui-modal [(shown)]="addExpenseShown" [title]="'Add expense'">
   <bt-libs-ui-add-expense-template-driven-form (addExpense)="addExpense($event)" />
 </bt-libs-ui-modal>
+<bt-libs-ui-display-scales [scaleSizes]="[0.8, 1, 1.2, 1.4]">
+  <ng-template btLibsUiDisplayScales>I scale!</ng-template>
+</bt-libs-ui-display-scales>

@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ModalComponent } from '@bt-libs/shared/ui/common-component';
+import {
+  DisplayScalesComponent,
+  DisplayScalesDirective,
+  ModalComponent,
+} from '@bt-libs/shared/ui/common-component';
 import {
   AddExpense,
   AddExpenseTemplateDrivenFormComponent,
@@ -14,6 +18,8 @@ import {
     RouterModule,
     ModalComponent,
     AddExpenseTemplateDrivenFormComponent,
+    DisplayScalesComponent,
+    DisplayScalesDirective,
   ],
   templateUrl: './expenses-overview-page.component.html',
   styleUrl: './expenses-overview-page.component.sass',
@@ -23,5 +29,5 @@ export class ExpensesOverviewPageComponent {
   addExpense(formData: AddExpense) {
     console.log(formData);
   }
-  addExpenseShown = true;
+  addExpenseShown = false;
 }
