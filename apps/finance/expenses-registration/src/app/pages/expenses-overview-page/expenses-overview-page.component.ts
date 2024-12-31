@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
@@ -14,6 +20,7 @@ import {
   AddExpense,
   AddExpenseTemplateDrivenFormComponent,
 } from '@bt-libs/finance/ui/expenses-registration-forms';
+import { ExpensesHttpService } from '@bt-libs/finance/data-access/expenses';
 
 @Component({
   selector: 'business-tools-monorepo-expenses-overview-page',
@@ -31,6 +38,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesOverviewPageComponent implements OnInit {
+  expenseService = inject(ExpensesHttpService);
   addExpense(formData: AddExpense) {
     console.log(formData);
   }
@@ -44,7 +52,7 @@ export class ExpensesOverviewPageComponent implements OnInit {
         component: this.showWeather
           ? WeatherWidgetComponent
           : ClockWidgetComponent,
-          injector: null
+        injector: null,
       };
       this.showWeather = !this.showWeather;
       this.cd.detectChanges();

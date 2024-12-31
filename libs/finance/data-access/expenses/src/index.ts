@@ -1,1 +1,1 @@
-export * from './lib/services/expenses.service';
+export * from './lib/HTTP/expenses.http';
