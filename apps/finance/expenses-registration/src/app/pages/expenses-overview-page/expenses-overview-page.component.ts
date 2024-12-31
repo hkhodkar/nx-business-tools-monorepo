@@ -34,17 +34,18 @@ import { ExpensesHttpService } from '@bt-libs/finance/data-access/expenses';
     WidgetContainerComponent,
   ],
   templateUrl: './expenses-overview-page.component.html',
-  styleUrl: './expenses-overview-page.component.sass',
+  styleUrl: './expenses-overview-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesOverviewPageComponent implements OnInit {
-  expenseService = inject(ExpensesHttpService);
+  private readonly _expenseService = inject(ExpensesHttpService);
   addExpense(formData: AddExpense) {
     console.log(formData);
   }
   addExpenseShown = false;
   activeWidget!: widget;
   protected readonly cd = inject(ChangeDetectorRef);
+  expensesList$ = this._expenseService.get();
   showWeather = true;
   ngOnInit() {
     setInterval(() => {

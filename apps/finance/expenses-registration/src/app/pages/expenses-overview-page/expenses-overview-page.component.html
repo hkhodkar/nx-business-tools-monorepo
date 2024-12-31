@@ -6,3 +6,12 @@
   <ng-template btLibsUiDisplayScales>I scale!</ng-template>
 </bt-libs-ui-display-scales>
 <bt-libs-ui-widget-container *ngIf="activeWidget" [widget]="activeWidget" />
+@for(expense of expensesList$ | async; track expense.id; let index=$index){
+  <div class="expense-container">
+    <p>{{index + 1}}: amount exclVat : {{expense.amount.amountExclVat}}</p>
+    <p>vat percentage: {{expense.amount.vatPercentage}}</p>
+    <p>dat: {{expense.date}}</p>
+    <p>description: {{expense.description}}</p>
+    <p>date: {{expense.date}}</p>
+  </div>
+}
