@@ -26,10 +26,10 @@
       <div class="form-field" *ngFor="let item of addExpenseForm.controls.tags.controls; index as i">
         <label for="tag-{{i}}">Tag:</label>
         <div class="tag-field">
-          <input [formControlName]="i" type="text" id="tag-{{i}}">
+          <input #tags [formControlName]="i" type="text" id="tag-{{i}}">
           <div>
-            <button *ngIf="i > 0" (click)="removeTag(i)">-</button>
-            <button (click)="addTag()">+</button>
+            <button type="button" *ngIf="i > 0" (click)="removeTag(i)">-</button>
+            <button type="button" *ngIf="i === 0" [disabled]="disabledAddTagButton()" (click)="addTag()">+</button>
           </div>
         </div>
       </div>
