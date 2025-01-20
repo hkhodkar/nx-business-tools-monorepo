@@ -11,13 +11,13 @@
     <fieldset ngModelGroup="amount">
       <div class="form-field">
         <label for="amountExclVat">Amount excl. VAT:</label>
-        <input required [(ngModel)]="expenseToAdd.amountExclVat" #amountExclVat="ngModel" type="number"
+        <input required [(ngModel)]="expenseToAdd.amount" #amountExclVat="ngModel" type="number"
           id="amountExclVat" name="amountExclVat">
         <span *ngIf="addExpenseForm.touched && amountExclVat.hasError('required')">This field is required</span>
       </div>
       <div class="form-field">
         <label for="vatPercentage">VAT percentage:</label>
-        <input required [max]="100" [(ngModel)]="expenseToAdd.vatPercentage" #vatPercentage="ngModel" type="number"
+        <input required [max]="100" [(ngModel)]="expenseToAdd.amount.vatPercentage" #vatPercentage="ngModel" type="number"
           id="vatPercentage" name="vatPercentage">
         <span *ngIf="addExpenseForm.touched && vatPercentage.hasError('required')">This field is required</span>
         <span *ngIf="addExpenseForm.touched && vatPercentage.hasError('max')">The max percentage allowed is 100</span>

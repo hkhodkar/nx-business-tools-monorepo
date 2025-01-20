@@ -12,7 +12,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddExpenseReactive } from '../add-expense.interface';
 import {
   FormArray,
   FormControl,
@@ -22,7 +21,8 @@ import {
 } from '@angular/forms';
 import { maxWordCountValidator } from '@bt-libs/shared/util/form-validators';
 import { debounceTime, of, Subject, switchMap, takeUntil } from 'rxjs';
-
+import { v4 as uuidv4 } from 'uuid';
+import { ExpenseModel } from '@bt-libs/finance/data-access/expenses';
 @Component({
   selector: 'bt-libs-ui-add-expense-reactive-form',
   imports: [CommonModule, ReactiveFormsModule],
@@ -37,7 +37,7 @@ export class AddExpenseReactiveFormComponent implements OnInit, OnDestroy {
   @ViewChildren('tags') tags!: QueryList<ElementRef<HTMLInputElement>>;
 
   @Input()
-  public set expenseToAdd(value: AddExpenseReactive) {
+  public set expenseToAdd(value: ExpenseModel) {
     this.addExpenseForm.patchValue(value);
 
     this.addExpenseForm.controls.tags.clear();
@@ -46,9 +46,10 @@ export class AddExpenseReactiveFormComponent implements OnInit, OnDestroy {
     });
   }
 
-  @Output() addExpense = new EventEmitter<AddExpenseReactive>();
+  @Output() addExpense = new EventEmitter<ExpenseModel>();
 
   addExpenseForm = new FormGroup({
+    id: new FormControl(uuidv4()),
     description: new FormControl(
       '',
       Validators.compose([Validators.required, maxWordCountValidator(4)])
@@ -93,9 +94,8 @@ export class AddExpenseReactiveFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this.addExpense.emit(
-      structuredClone(this.addExpenseForm.value as AddExpenseReactive)
+      structuredClone(this.addExpenseForm.value as ExpenseModel)
     );
-    console.log(this.addExpenseForm.value);
     this.addExpenseForm.reset();
   }
   ngOnDestroy(): void {

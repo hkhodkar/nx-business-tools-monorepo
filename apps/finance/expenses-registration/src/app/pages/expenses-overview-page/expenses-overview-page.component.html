@@ -1,17 +1,34 @@
-<button *ngIf="!addExpenseShown" (click)="addExpenseShown=true">show modal</button>
-<bt-libs-ui-modal [(shown)]="addExpenseShown" [title]="'Add expense'">
-  <bt-libs-ui-add-expense-template-driven-form (addExpense)="addExpense($event)" />
-</bt-libs-ui-modal>
-<bt-libs-ui-display-scales [scaleSizes]="[0.8, 1, 1.2, 1.4]">
-  <ng-template btLibsUiDisplayScales>I scale!</ng-template>
-</bt-libs-ui-display-scales>
-<bt-libs-ui-widget-container *ngIf="activeWidget" [widget]="activeWidget" />
-@for(expense of expensesList$ | async; track expense.id; let index=$index){
-  <div class="expense-container">
-    <p>{{index + 1}}: amount exclVat : {{expense.amount.amountExclVat}}</p>
-    <p>vat percentage: {{expense.amount.vatPercentage}}</p>
-    <p>dat: {{expense.date}}</p>
-    <p>description: {{expense.description}}</p>
-    <p>date: {{expense.date}}</p>
-  </div>
-}
+<div class="container">
+  <bt-libs-ui-button buttonType="button" (buttonClicked)="showAddExpanseModal.set(true)">Add Expense</bt-libs-ui-button>
+  <bt-libs-ui-modal [shown]="showAddExpanseModal()" title="add expanse" (shownChange)="showAddExpanseModal.set(false)">
+    <bt-libs-ui-add-expense-reactive-form (addExpense)="onAddExpense($event)" />
+  </bt-libs-ui-modal>
+
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>description</th>
+        <th>amount excl vat</th>
+        <th>vat percentage</th>
+        <th>date</th>
+        <th>tags</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(expense of expenses(); track expense?.id) {
+      <tr>
+        <td>{{expense.description}}</td>
+        <td>{{expense?.amount?.amountExclVat}}</td>
+        <td>{{expense?.amount?.vatPercentage}}</td>
+        <td>{{expense.date}}</td>
+        <td>{{expense.tags?.join(' - ')}}</td>
+      </tr>
+    }
+    <tr>
+      <td>Total Vat</td>
+      <td>{{totalInclVat()}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

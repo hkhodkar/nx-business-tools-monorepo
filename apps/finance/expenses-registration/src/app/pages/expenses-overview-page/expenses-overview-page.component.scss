@@ -1,5 +1,70 @@
+$primary-color: #00897b;
+$secondary-color: #004d40;
+$text-color: #333;
+$header-text-color: #fff;
+$row-hover-color: rgba(0, 137, 123, 0.1);
+$alternate-row-color: #f9f9f9; 
+$border-color: #48454517; 
 
-.expense-container {
+.container {
+  margin: 2rem;
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   padding: 1rem;
-  text-align: center;
+
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 16px;
+    color: $text-color;
+
+    thead {
+      tr {
+        background-color: $primary-color;
+        color: $header-text-color;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        th {
+          padding: 16px;
+          text-align: left;
+          &:not(:last-child) {
+            border-right: 1px solid $border-color;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $border-color;
+        transition: background-color 0.3s;
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:nth-of-type(even) {
+          background-color: $alternate-row-color;
+        }
+
+        &:hover {
+          background-color: $row-hover-color;
+        }
+
+        td {
+          padding: 14px 16px;
+          text-align: left;
+          &:not(:last-child) {
+            border-right: 0.5px solid $border-color;
+          }
+        }
+      }
+    }
+  }
 }

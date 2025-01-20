@@ -1,18 +1,18 @@
 export interface ExpenseDto {
-  id: number | null;
+  id: string | null;
   title: string;
   amount: number;
   vatPercentage: number;
-  date: string;
+  date?: string;
   tags?: string[];
 }
 export interface ExpenseModel {
-  id: number | null;
+  id: string | null;
   description: string;
   amount: {
     amountExclVat: number;
     vatPercentage: number;
   };
-  date: string;
+  date?: string;
   tags?: string[];
 }

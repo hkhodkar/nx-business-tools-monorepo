@@ -3,13 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HighlightDirective } from '@bt-libs/shared/ui/common-directives';
 import { SelectableLabelComponent } from '@bt-libs/shared/ui/common-component';
 import {
-  AddExpense,
-  AddExpenseReactiveFormComponent,
   AddExpenseTemplateDrivenFormComponent,
   DynamicControl,
   DynamicFormComponent,
 } from '@bt-libs/finance/ui/expenses-registration-forms';
 import { Validators } from '@angular/forms';
+import { ExpenseModel } from '@bt-libs/finance/data-access/expenses';
 
 @Component({
   selector: 'business-tools-monorepo-expenses-approval-page',
@@ -18,7 +17,6 @@ import { Validators } from '@angular/forms';
     HighlightDirective,
     SelectableLabelComponent,
     AddExpenseTemplateDrivenFormComponent,
-    AddExpenseReactiveFormComponent,
     DynamicFormComponent,
   ],
   templateUrl: './expenses-approval-page.component.html',
@@ -26,9 +24,6 @@ import { Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpensesApprovalPageComponent {
-  onAddExpense(addExpense: AddExpense) {
-    console.log(addExpense);
-  }
 
   formModelConfig: DynamicControl[] = [
     {
@@ -59,4 +54,8 @@ export class ExpensesApprovalPageComponent {
       validators: [Validators.required, Validators.min(0), Validators.max(100)],
     },
   ];
+
+  onAddExpense(addExpense: ExpenseModel) {
+    console.log(addExpense);
+  }
 }

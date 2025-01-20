@@ -3,7 +3,7 @@
     <div class="modal-header">
       <h1>{{title}}</h1>
       <ng-content select="[header]"></ng-content>
-      <span (click)="shown = false; shownChange.emit()">X</span>
+      <span (click)="shown = false; shownChange.emit()">&times;</span>
     </div>
 
     <div class="modal-content">
